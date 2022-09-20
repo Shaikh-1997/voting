@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymLeaf.com" >
+<head>
+    <meta charset="utf-8">
+  <title>Home</title>
+
+</head>
+
+<body >
+<script>
+function validateform(){
+var name=document.myform.name.value;
+var password=document.myform.password.value;
+
+if (name==null || name==""){
+  alert("Name can't be blank");
+  return false;
+}else if(password.length<5){
+  alert("Password must be at least 6 characters long.");
+  return false;
+  }
+}
+</script>
+<div class="container">
+    <div class="row">
+       <h4 class=" text-center text-primary">Login Form</h4>
+              <form    th:action="@{/login}" method="post" name="myform"   onsubmit="return validateform()">
+                           <div class="form-group">
+                            <label>User name</label>
+                            <input type="text" class="form-control" name="name" required >
+                        </div>
+                             <div class="form-group">
+                            <label>Enter Password </label><input type="password"  class="form-control" name="password" required>
+                        </div>
+                        <br>
+                  <div class="card-header">
+                      <button class=" btn btn-primary offset-md-2"    href="castevote.html" th:action="@{/login}" >  login </button>
+                  </div>
+
+                    </form>
+        <form  th:action="@{/register}">
+            <button class=" btn btn-primary offset-md-2"   href="register.html" th:action="@{/register}">  Register </button>
+        </form>
+
+
+
+
+    </div>
+                </div>
+
+</body>
+
+</html>
